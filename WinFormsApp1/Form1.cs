@@ -1,10 +1,14 @@
+using Npgsql;
+
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
+        NpgsqlConnection conn = new NpgsqlConnection("Server= localhost; database=bloodDonation+; User Id= postgres; Password=danielleon");
         public Form1()
         {
             InitializeComponent();
+            conn.Open();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -12,6 +16,7 @@ namespace WinFormsApp1
           
             Index index = new Index();
             index.Show();
+            
             this.Hide();
                
         }
@@ -23,6 +28,7 @@ namespace WinFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
+            conn.Close();
             Application.Exit();
         }
     }

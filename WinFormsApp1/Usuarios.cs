@@ -8,36 +8,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
-
 namespace WinFormsApp1
 {
-
-    public partial class Agregar_enfermerocs : Form
+    public partial class Usuarios : Form
     {
-        bool bandera_editar=false;
+        bool bandera_editar = false;
         NpgsqlConnection conn = new NpgsqlConnection("Server= localhost; database=bloodDonation+; User Id= postgres; Password=danielleon");
-        public Agregar_enfermerocs()
+        public Usuarios()
         {
             InitializeComponent();
             conn.Open();
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        public void Insertar(int id, string CURP, string nombre, string ap_paterno, string ap_materno, string telefono, string correo, string password, string cargo)
         {
-
-        }
-        public void Insertar(int id, string CURP, string nombre, string ap_paterno, string ap_materno, string telefono, string correo, string password, string cedula)
-        {
-            string query = "Insert into \"enfermero\" values ("
-                + id + ",'" + CURP + "','" + nombre + "','" + ap_paterno + "','" + ap_materno + "','" + telefono + "','" + correo + "','" + password + "','" + cedula + "')";
+            string query = "Insert into "+ cargo +" values ("
+                + id + ",'" + CURP + "','" + nombre + "','" + ap_paterno + "','" + ap_materno + "','" + telefono + "','" + correo + "','" + password + "')";
 
             NpgsqlCommand ejecutor = new NpgsqlCommand(query, conn);
             ejecutor.ExecuteNonQuery();
-            MessageBox.Show("Exito!");
+
         }
         public void Actualizar(string nombre, string ap_paterno, string ap_materno, string telefono, string correo, string password, string cedula, string n)
         {
-            string query = "Update \"enfermero\" set \"nombre\"='" + nombre + "',\"apellido_paterno\"='" + ap_paterno + "',\"apellido_materno\"='" + ap_materno + "',\"telefono\"='" + telefono + "',\"correo\"='" + correo + "',\"password\"='" + password + "',\"cedula\"='" + cedula + "'" + "where \"curp\"='" + n + "'";
+            string query = "Update \"medico\" set \"nombre\"='" + nombre + "',\"apellido_paterno\"='" + ap_paterno + "',\"apellido_materno\"='" + ap_materno + "',\"telefono\"='" + telefono + "',\"correo\"='" + correo + "',\"password\"='" + password + "',\"cedula\"='" + cedula + "'" + "where \"curp\"='" + n + "'";
             NpgsqlCommand ejecutor = new NpgsqlCommand(query, conn);
             ejecutor.ExecuteNonQuery();
 
@@ -46,48 +39,49 @@ namespace WinFormsApp1
         {
             if (editar)
             {
-                bandera_editar=true;
+                bandera_editar = true;
             }
             else
             {
-                bandera_editar=false;
+                bandera_editar = false;
             }
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
-           
-            if (bandera_editar==false)
+            if (bandera_editar == false)
             {
                 Insertar(
-                Convert.ToInt32(numericID.Text),
+                Convert.ToInt32(id_usuario.Text),
                 txt_CURP.Text,
                 txt_Nombre.Text,
-                txt_Paterno.Text,
-                txt_Materno.Text,
-                txt_Telefono.Text,
-                txt_Email.Text,
+                txt_ap.Text,
+                txt_am.Text,
+                txt_telefono.Text,
+                txt_email.Text,
                 txt_contraseña.Text,
-                txt_ARNP.Text
+                Convert.ToString(comboCargo.SelectedItem)
                 );
                 conn.Close();
                 this.Close();
+                MessageBox.Show("Exito!");
+
             }
             else
             {
                 Actualizar(
                     txt_Nombre.Text,
-                    txt_Paterno.Text,
-                    txt_Materno.Text,
-                    txt_Telefono.Text,
-                    txt_Email.Text,
+                    txt_ap.Text,
+                    txt_am.Text,
+                    txt_telefono.Text,
+                    txt_email.Text,
                     txt_contraseña.Text,
-                    txt_ARNP.Text,
+                    Convert.ToString(comboCargo.SelectedItem),
                     txt_CURP.Text
                     );
                 conn.Close();
                 MessageBox.Show("Registro Actualizado!");
                 this.Close();
-
             }
         }
     }

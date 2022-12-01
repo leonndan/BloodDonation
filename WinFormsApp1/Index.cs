@@ -112,5 +112,11 @@ namespace WinFormsApp1
             Agregar_unidad ag_unidad = new Agregar_unidad();
             ag_unidad.Show();
         }
+
+        private void nuevoUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Usuarios usuarios = new Usuarios();
+            usuarios.Show();
+        }
     }
 }
