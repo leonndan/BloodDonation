@@ -19,6 +19,7 @@ namespace WinFormsApp1
         public Agregar_enfermerocs()
         {
             InitializeComponent();
+            txt_Telefono.Controls[0].Visible = false;
             conn.Open();
         }
 
@@ -26,14 +27,22 @@ namespace WinFormsApp1
         {
 
         }
-        public void Insertar(int id, string CURP, string nombre, string ap_paterno, string ap_materno, string telefono, string correo, string password, string cedula)
+        public void Insertar(string CURP, string nombre, string ap_paterno, string ap_materno, string telefono, string correo, string password, string cedula)
         {
-            string query = "Insert into \"enfermero\" values ("
-                + id + ",'" + CURP + "','" + nombre + "','" + ap_paterno + "','" + ap_materno + "','" + telefono + "','" + correo + "','" + password + "','" + cedula + "')";
+            string query = "Insert into \"enfermero\" (curp,nombre,apellido_paterno,apellido_materno,telefono,correo,password,cedula)  values ("
+                + "'" + CURP + "','" + nombre + "','" + ap_paterno + "','" + ap_materno + "','" + telefono + "','" + correo + "','" + password + "','" + cedula + "')";
+            
+            try
+            {
 
-            NpgsqlCommand ejecutor = new NpgsqlCommand(query, conn);
-            ejecutor.ExecuteNonQuery();
-            MessageBox.Show("Exito!");
+                NpgsqlCommand ejecutor = new NpgsqlCommand(query, conn);
+                ejecutor.ExecuteNonQuery();
+                MessageBox.Show("Exito!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error, CURP debe ser unica");
+            }
         }
         public void Actualizar(string nombre, string ap_paterno, string ap_materno, string telefono, string correo, string password, string cedula, string n)
         {
@@ -55,39 +64,51 @@ namespace WinFormsApp1
         }
         private void button1_Click(object sender, EventArgs e)
         {
-           
-            if (bandera_editar==false)
+            if (txt_CURP.Text == "" | txt_Nombre.Text == "" | txt_Materno.Text == "" | txt_Paterno.Text == "" | txt_Telefono.Text == "" | txt_Email.Text == "" | txt_ARNP.Text == "")
             {
-                Insertar(
-                Convert.ToInt32(numericID.Text),
-                txt_CURP.Text,
-                txt_Nombre.Text,
-                txt_Paterno.Text,
-                txt_Materno.Text,
-                txt_Telefono.Text,
-                txt_Email.Text,
-                txt_contraseña.Text,
-                txt_ARNP.Text
-                );
-                conn.Close();
-                this.Close();
+                MessageBox.Show("Faltan campos por llenar", "Error!");
             }
             else
             {
-                Actualizar(
-                    txt_Nombre.Text,
-                    txt_Paterno.Text,
-                    txt_Materno.Text,
-                    txt_Telefono.Text,
-                    txt_Email.Text,
-                    txt_contraseña.Text,
-                    txt_ARNP.Text,
-                    txt_CURP.Text
-                    );
-                conn.Close();
-                MessageBox.Show("Registro Actualizado!");
-                this.Close();
+                if (txt_CURP.Text.Length < 18)
+                {
+                    MessageBox.Show("CURP no tiene longitud de 18 caracteres", "Error CURP!");
+                }
+                else
+                {
+                    if (bandera_editar == false)
+                    {
+                        Insertar(
+                        txt_CURP.Text,
+                        txt_Nombre.Text,
+                        txt_Paterno.Text,
+                        txt_Materno.Text,
+                        txt_Telefono.Text,
+                        txt_Email.Text,
+                        txt_contraseña.Text,
+                        txt_ARNP.Text
+                        );
+                        conn.Close();
+                        this.Close();
+                    }
+                    else
+                    {
+                        Actualizar(
+                            txt_Nombre.Text,
+                            txt_Paterno.Text,
+                            txt_Materno.Text,
+                            txt_Telefono.Text,
+                            txt_Email.Text,
+                            txt_contraseña.Text,
+                            txt_ARNP.Text,
+                            txt_CURP.Text
+                            );
+                        conn.Close();
+                        MessageBox.Show("Registro Actualizado!");
+                        this.Close();
 
+                    }
+                }
             }
         }
     }

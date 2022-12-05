@@ -7,7 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using Npgsql;
+using System.Reflection.Metadata;
+
 namespace WinFormsApp1
 {
     public partial class Agregar_paciente : Form
@@ -17,6 +20,7 @@ namespace WinFormsApp1
         public Agregar_paciente()
         {
             InitializeComponent();
+            txt_Telefono.Controls[0].Visible = false;
             conn.Open();
         }
 
@@ -27,50 +31,69 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (bandera_editar == false)
+            if (txt_CURP.Text == "" | txt_Nombre.Text == "" | txt_Materno.Text == "" | txt_Paterno.Text == "" | txt_Telefono.Text == "" | txt_Email.Text == "" | comboMedico.Text == "" | comboEnfermero.Text == "" | comboSangre.Text == "")
             {
-                Insertar(
-                Convert.ToInt32(numericID.Text),
-                txt_CURP.Text,
-                txt_Nombre.Text,
-                txt_Paterno.Text,
-                txt_Materno.Text,
-                txt_Telefono.Text,
-                txt_Email.Text,
-                Convert.ToString(comboEnfermero.SelectedItem),
-                Convert.ToString(comboMedico.SelectedItem),
-                Convert.ToString(comboSangre.SelectedItem)
-                );
-                conn.Close();
-                this.Close();
-                MessageBox.Show("Exito!");
-
+                MessageBox.Show("Faltan campos por llenar", "Error!");
             }
             else
             {
-                Actualizar(
-                    txt_Nombre.Text,
-                    txt_Paterno.Text,
-                    txt_Materno.Text,
-                    txt_Telefono.Text,
-                    txt_Email.Text,
-                    Convert.ToString(comboEnfermero.SelectedItem),
-                    Convert.ToString(comboMedico.SelectedItem),
-                    Convert.ToString(comboSangre.SelectedItem),
-                    txt_CURP.Text
-                    );
-                conn.Close();
-                MessageBox.Show("Registro Actualizado!");
-                this.Close();
+                if (txt_CURP.Text.Length < 18)
+                {
+                    MessageBox.Show("CURP no tiene longitud de 18 caracteres", "Error CURP!");
+                }
+                else
+                {
+                    if (bandera_editar == false)
+                    {
+                        Insertar(
+                        txt_CURP.Text,
+                        txt_Nombre.Text,
+                        txt_Paterno.Text,
+                        txt_Materno.Text,
+                        txt_Telefono.Text,
+                        txt_Email.Text,
+                        Convert.ToString(comboEnfermero.SelectedItem),
+                        Convert.ToString(comboMedico.SelectedItem),
+                        Convert.ToString(comboSangre.SelectedItem)
+                        );
+                        conn.Close();
+                        this.Close();   
+                    }
+                    else
+                    {
+                        Actualizar(
+                            txt_Nombre.Text,
+                            txt_Paterno.Text,
+                            txt_Materno.Text,
+                            txt_Telefono.Text,
+                            txt_Email.Text,
+                            Convert.ToString(comboEnfermero.SelectedItem),
+                            Convert.ToString(comboMedico.SelectedItem),
+                            Convert.ToString(comboSangre.SelectedItem),
+                            txt_CURP.Text
+                            );
+                        conn.Close();
+                        MessageBox.Show("Registro Actualizado!");
+                        this.Close();
+                    }
+                }
             }
         }
-        public void Insertar(int id, string CURP, string nombre, string ap_paterno, string ap_materno, string telefono, string correo,string enfermero,string medico,string tipo_sangre)
+        public void Insertar(string CURP, string nombre, string ap_paterno, string ap_materno, string telefono, string correo,string enfermero,string medico,string tipo_sangre)
         {
-            string query = "Insert into \"pacientes\" values ("
-                + id + ",'" + CURP + "','" + nombre + "','" + ap_paterno + "','" + ap_materno + "','" + telefono + "','" + correo + "','" + tipo_sangre + "','" + enfermero + "','" + medico + "')";
+            string query = "Insert into \"pacientes\" (curp,nombre,ap_paterno,ap_materno,telefono,correo,tipo_sangre,enfermero_encargado,medico_encargado) values (" + "'" + CURP + "','" + nombre + "','" + ap_paterno + "','" + ap_materno + "','" + telefono + "','" + correo + "','" + tipo_sangre + "','" + enfermero + "','" + medico + "')";
 
-            NpgsqlCommand ejecutor = new NpgsqlCommand(query, conn);
-            ejecutor.ExecuteNonQuery();
+            try
+            {
+                NpgsqlCommand ejecutor = new NpgsqlCommand(query, conn);
+                ejecutor.ExecuteNonQuery();
+                MessageBox.Show("Exito!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error, CURP debe ser unica");
+            }
+            
 
         }
         public void Actualizar(string nombre, string ap_paterno, string ap_materno, string telefono, string correo, string enfermero, string medico, string tipo_sangre, string n)

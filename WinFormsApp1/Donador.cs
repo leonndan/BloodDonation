@@ -76,6 +76,7 @@ namespace WinFormsApp1
             {
                 Eliminar(txt_Consulta_Don.Text);
                 MessageBox.Show("Registro Eliminado!");
+                this.Close();
             }
         }
     }

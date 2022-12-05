@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pacientescs));
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_Eliminar = new System.Windows.Forms.Button();
+            this.btn_Editar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txt_Consulta_Pac = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_Consulta = new System.Windows.Forms.Button();
             this.dataGridPaciente = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -42,27 +42,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPaciente)).BeginInit();
             this.SuspendLayout();
             // 
-            // button2
+            // btn_Eliminar
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(75, 375);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(137, 22);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_Eliminar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Eliminar.Location = new System.Drawing.Point(75, 375);
+            this.btn_Eliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Eliminar.Name = "btn_Eliminar";
+            this.btn_Eliminar.Size = new System.Drawing.Size(137, 22);
+            this.btn_Eliminar.TabIndex = 4;
+            this.btn_Eliminar.Text = "Eliminar";
+            this.btn_Eliminar.UseVisualStyleBackColor = false;
+            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click_1);
             // 
-            // button3
+            // btn_Editar
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(328, 375);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(134, 22);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Editar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btn_Editar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Editar.Location = new System.Drawing.Point(328, 375);
+            this.btn_Editar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Editar.Name = "btn_Editar";
+            this.btn_Editar.Size = new System.Drawing.Size(134, 22);
+            this.btn_Editar.TabIndex = 5;
+            this.btn_Editar.Text = "Editar";
+            this.btn_Editar.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -95,17 +96,17 @@
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
-            // button4
+            // btn_Consulta
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(584, 375);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(135, 22);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Consulta";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn_Consulta.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Consulta.Location = new System.Drawing.Point(584, 375);
+            this.btn_Consulta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Consulta.Name = "btn_Consulta";
+            this.btn_Consulta.Size = new System.Drawing.Size(135, 22);
+            this.btn_Consulta.TabIndex = 9;
+            this.btn_Consulta.Text = "Consulta";
+            this.btn_Consulta.UseVisualStyleBackColor = false;
+            this.btn_Consulta.Click += new System.EventHandler(this.button4_Click);
             // 
             // dataGridPaciente
             // 
@@ -144,12 +145,12 @@
             this.ClientSize = new System.Drawing.Size(799, 440);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridPaciente);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btn_Consulta);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.txt_Consulta_Pac);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_Editar);
+            this.Controls.Add(this.btn_Eliminar);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Pacientescs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -163,12 +164,12 @@
         }
 
         #endregion
-        private Button button2;
-        private Button button3;
+        private Button btn_Eliminar;
+        private Button btn_Editar;
         private PictureBox pictureBox1;
         private TextBox txt_Consulta_Pac;
         private PictureBox pictureBox2;
-        private Button button4;
+        private Button btn_Consulta;
         private DataGridView dataGridPaciente;
         private Label label2;
     }

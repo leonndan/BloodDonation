@@ -33,8 +33,6 @@
             this.comboEnferemero = new System.Windows.Forms.ComboBox();
             this.comboDonador = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.numericID = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,19 +43,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Agregar = new System.Windows.Forms.Button();
-            this.numericPlasma = new System.Windows.Forms.NumericUpDown();
-            this.numericGRojos = new System.Windows.Forms.NumericUpDown();
-            this.numericPlaquetas = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.numericID)).BeginInit();
+            this.tipo_donacion = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericVolumen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPlasma)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericGRojos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPlaquetas)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -72,8 +62,9 @@
             // 
             // comboEnferemero
             // 
+            this.comboEnferemero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboEnferemero.FormattingEnabled = true;
-            this.comboEnferemero.Location = new System.Drawing.Point(312, 112);
+            this.comboEnferemero.Location = new System.Drawing.Point(332, 111);
             this.comboEnferemero.Name = "comboEnferemero";
             this.comboEnferemero.Size = new System.Drawing.Size(171, 23);
             this.comboEnferemero.TabIndex = 3;
@@ -81,8 +72,9 @@
             // 
             // comboDonador
             // 
+            this.comboDonador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboDonador.FormattingEnabled = true;
-            this.comboDonador.Location = new System.Drawing.Point(563, 111);
+            this.comboDonador.Location = new System.Drawing.Point(565, 111);
             this.comboDonador.Name = "comboDonador";
             this.comboDonador.Size = new System.Drawing.Size(169, 23);
             this.comboDonador.TabIndex = 4;
@@ -97,32 +89,15 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
             this.dateTimePicker1.TabIndex = 5;
             // 
-            // numericID
-            // 
-            this.numericID.Location = new System.Drawing.Point(46, 112);
-            this.numericID.Name = "numericID";
-            this.numericID.Size = new System.Drawing.Size(120, 23);
-            this.numericID.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(46, 84);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 19);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "ID";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(312, 159);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(177, 19);
+            this.label3.Size = new System.Drawing.Size(234, 19);
             this.label3.TabIndex = 8;
-            this.label3.Text = "VOLUMEN DE SANGRE";
+            this.label3.Text = "VOLUMEN DE DONACION(ML)";
             // 
             // label4
             // 
@@ -138,7 +113,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(312, 84);
+            this.label5.Location = new System.Drawing.Point(353, 84);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 19);
             this.label5.TabIndex = 10;
@@ -148,7 +123,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(563, 84);
+            this.label6.Location = new System.Drawing.Point(591, 84);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 19);
             this.label6.TabIndex = 11;
@@ -158,7 +133,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(295, 317);
+            this.label7.Location = new System.Drawing.Point(312, 229);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 19);
             this.label7.TabIndex = 12;
@@ -178,6 +153,7 @@
             // 
             // combo_TipoSangre
             // 
+            this.combo_TipoSangre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_TipoSangre.FormattingEnabled = true;
             this.combo_TipoSangre.Items.AddRange(new object[] {
             "A+",
@@ -227,80 +203,38 @@
             this.btn_Agregar.UseVisualStyleBackColor = false;
             this.btn_Agregar.Click += new System.EventHandler(this.btn_Agregar_Click);
             // 
-            // numericPlasma
-            // 
-            this.numericPlasma.Location = new System.Drawing.Point(312, 266);
-            this.numericPlasma.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.numericPlasma.Name = "numericPlasma";
-            this.numericPlasma.Size = new System.Drawing.Size(120, 23);
-            this.numericPlasma.TabIndex = 21;
-            // 
-            // numericGRojos
-            // 
-            this.numericGRojos.Location = new System.Drawing.Point(45, 266);
-            this.numericGRojos.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.numericGRojos.Name = "numericGRojos";
-            this.numericGRojos.Size = new System.Drawing.Size(120, 23);
-            this.numericGRojos.TabIndex = 22;
-            // 
-            // numericPlaquetas
-            // 
-            this.numericPlaquetas.Location = new System.Drawing.Point(563, 182);
-            this.numericPlaquetas.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.numericPlaquetas.Name = "numericPlaquetas";
-            this.numericPlaquetas.Size = new System.Drawing.Size(120, 23);
-            this.numericPlaquetas.TabIndex = 23;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(312, 229);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(178, 19);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "VOLUMEN DE PLASMA";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.Location = new System.Drawing.Point(45, 229);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(251, 19);
+            this.label10.Size = new System.Drawing.Size(158, 19);
             this.label10.TabIndex = 25;
-            this.label10.Text = "VOLUMEN DE GLOBULOS ROJOS";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(563, 159);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(204, 19);
-            this.label11.TabIndex = 26;
-            this.label11.Text = "VOLUMEN DE PLAQUETAS";
+            this.label10.Text = "TIPO DE DONACION";
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.CustomFormat = "yyyy/MM/dd ";
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(295, 352);
+            this.dateTimePicker2.Location = new System.Drawing.Point(283, 265);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 23);
             this.dateTimePicker2.TabIndex = 27;
+            // 
+            // tipo_donacion
+            // 
+            this.tipo_donacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tipo_donacion.FormattingEnabled = true;
+            this.tipo_donacion.Items.AddRange(new object[] {
+            "Globulos rojos",
+            "Plaquetas",
+            "Plasma",
+            "Sangre completa"});
+            this.tipo_donacion.Location = new System.Drawing.Point(45, 265);
+            this.tipo_donacion.Name = "tipo_donacion";
+            this.tipo_donacion.Size = new System.Drawing.Size(169, 23);
+            this.tipo_donacion.TabIndex = 28;
             // 
             // Agregar_unidad
             // 
@@ -308,13 +242,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(816, 555);
+            this.Controls.Add(this.tipo_donacion);
             this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.numericPlaquetas);
-            this.Controls.Add(this.numericGRojos);
-            this.Controls.Add(this.numericPlasma);
             this.Controls.Add(this.btn_Agregar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label8);
@@ -325,8 +255,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.numericID);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.comboDonador);
             this.Controls.Add(this.comboEnferemero);
@@ -336,12 +264,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar_unidad";
             this.Load += new System.EventHandler(this.Agregar_unidad_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericVolumen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPlasma)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericGRojos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPlaquetas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,8 +277,6 @@
         private ComboBox comboEnferemero;
         private ComboBox comboDonador;
         private DateTimePicker dateTimePicker1;
-        private NumericUpDown numericID;
-        private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
@@ -365,12 +287,8 @@
         private Label label8;
         private PictureBox pictureBox1;
         private Button btn_Agregar;
-        private NumericUpDown numericPlasma;
-        private NumericUpDown numericGRojos;
-        private NumericUpDown numericPlaquetas;
-        private Label label9;
         private Label label10;
-        private Label label11;
         private DateTimePicker dateTimePicker2;
+        private ComboBox tipo_donacion;
     }
 }

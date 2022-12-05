@@ -38,20 +38,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txt_nombre = new System.Windows.Forms.TextBox();
-            this.txt_paterno = new System.Windows.Forms.TextBox();
-            this.txt_materno = new System.Windows.Forms.TextBox();
-            this.txt_telefono = new System.Windows.Forms.TextBox();
+            this.txt_Nombre = new System.Windows.Forms.TextBox();
+            this.txt_ap = new System.Windows.Forms.TextBox();
+            this.txt_am = new System.Windows.Forms.TextBox();
             this.txt_email = new System.Windows.Forms.TextBox();
-            this.txt_curp = new System.Windows.Forms.TextBox();
+            this.txt_CURP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tipo_Sangre = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.elegibilidad = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.numericID = new System.Windows.Forms.NumericUpDown();
+            this.txt_telefono = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_telefono)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Insert
@@ -148,41 +146,32 @@
             this.pictureBox1.TabIndex = 57;
             this.pictureBox1.TabStop = false;
             // 
-            // txt_nombre
+            // txt_Nombre
             // 
-            this.txt_nombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txt_nombre.Location = new System.Drawing.Point(290, 86);
-            this.txt_nombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Size = new System.Drawing.Size(196, 23);
-            this.txt_nombre.TabIndex = 55;
+            this.txt_Nombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txt_Nombre.Location = new System.Drawing.Point(290, 86);
+            this.txt_Nombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.Size = new System.Drawing.Size(196, 23);
+            this.txt_Nombre.TabIndex = 55;
             // 
-            // txt_paterno
+            // txt_ap
             // 
-            this.txt_paterno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txt_paterno.Location = new System.Drawing.Point(548, 86);
-            this.txt_paterno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_paterno.Name = "txt_paterno";
-            this.txt_paterno.Size = new System.Drawing.Size(196, 23);
-            this.txt_paterno.TabIndex = 54;
+            this.txt_ap.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txt_ap.Location = new System.Drawing.Point(548, 86);
+            this.txt_ap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_ap.Name = "txt_ap";
+            this.txt_ap.Size = new System.Drawing.Size(196, 23);
+            this.txt_ap.TabIndex = 54;
             // 
-            // txt_materno
+            // txt_am
             // 
-            this.txt_materno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txt_materno.Location = new System.Drawing.Point(45, 159);
-            this.txt_materno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_materno.Name = "txt_materno";
-            this.txt_materno.Size = new System.Drawing.Size(196, 23);
-            this.txt_materno.TabIndex = 53;
-            // 
-            // txt_telefono
-            // 
-            this.txt_telefono.Location = new System.Drawing.Point(290, 159);
-            this.txt_telefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_telefono.MaxLength = 10;
-            this.txt_telefono.Name = "txt_telefono";
-            this.txt_telefono.Size = new System.Drawing.Size(196, 23);
-            this.txt_telefono.TabIndex = 52;
+            this.txt_am.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txt_am.Location = new System.Drawing.Point(45, 159);
+            this.txt_am.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_am.Name = "txt_am";
+            this.txt_am.Size = new System.Drawing.Size(196, 23);
+            this.txt_am.TabIndex = 53;
             // 
             // txt_email
             // 
@@ -192,15 +181,15 @@
             this.txt_email.Size = new System.Drawing.Size(196, 23);
             this.txt_email.TabIndex = 51;
             // 
-            // txt_curp
+            // txt_CURP
             // 
-            this.txt_curp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txt_curp.Location = new System.Drawing.Point(45, 86);
-            this.txt_curp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_curp.MaxLength = 18;
-            this.txt_curp.Name = "txt_curp";
-            this.txt_curp.Size = new System.Drawing.Size(196, 23);
-            this.txt_curp.TabIndex = 50;
+            this.txt_CURP.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txt_CURP.Location = new System.Drawing.Point(45, 86);
+            this.txt_CURP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_CURP.MaxLength = 18;
+            this.txt_CURP.Name = "txt_CURP";
+            this.txt_CURP.Size = new System.Drawing.Size(196, 23);
+            this.txt_CURP.TabIndex = 50;
             // 
             // label1
             // 
@@ -252,23 +241,12 @@
             this.elegibilidad.Size = new System.Drawing.Size(196, 23);
             this.elegibilidad.TabIndex = 76;
             // 
-            // label13
+            // txt_telefono
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(45, 324);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(20, 15);
-            this.label13.TabIndex = 77;
-            this.label13.Text = "ID";
-            // 
-            // numericID
-            // 
-            this.numericID.Location = new System.Drawing.Point(45, 350);
-            this.numericID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericID.Name = "numericID";
-            this.numericID.Size = new System.Drawing.Size(131, 23);
-            this.numericID.TabIndex = 78;
+            this.txt_telefono.Location = new System.Drawing.Point(290, 160);
+            this.txt_telefono.Name = "txt_telefono";
+            this.txt_telefono.Size = new System.Drawing.Size(182, 23);
+            this.txt_telefono.TabIndex = 77;
             // 
             // Agregar_donador
             // 
@@ -276,8 +254,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(814, 533);
-            this.Controls.Add(this.numericID);
-            this.Controls.Add(this.label13);
+            this.Controls.Add(this.txt_telefono);
             this.Controls.Add(this.elegibilidad);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.tipo_Sangre);
@@ -290,18 +267,17 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.txt_nombre);
-            this.Controls.Add(this.txt_paterno);
-            this.Controls.Add(this.txt_materno);
-            this.Controls.Add(this.txt_telefono);
+            this.Controls.Add(this.txt_Nombre);
+            this.Controls.Add(this.txt_ap);
+            this.Controls.Add(this.txt_am);
             this.Controls.Add(this.txt_email);
-            this.Controls.Add(this.txt_curp);
+            this.Controls.Add(this.txt_CURP);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Agregar_donador";
             this.Text = "Agregar_donador";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_telefono)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,17 +293,15 @@
         private Label label3;
         private Label label2;
         private PictureBox pictureBox1;
-        private TextBox txt_nombre;
-        private TextBox txt_paterno;
-        private TextBox txt_materno;
-        private TextBox txt_telefono;
+        private TextBox txt_Nombre;
+        private TextBox txt_ap;
+        private TextBox txt_am;
         private TextBox txt_email;
-        private TextBox txt_curp;
+        private TextBox txt_CURP;
         private Label label1;
         private ComboBox tipo_Sangre;
         private Label label12;
         private ComboBox elegibilidad;
-        private Label label13;
-        private NumericUpDown numericID;
+        private NumericUpDown txt_telefono;
     }
 }

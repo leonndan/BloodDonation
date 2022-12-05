@@ -81,6 +81,7 @@ namespace WinFormsApp1
             {
                 Eliminar(txt_Consulta_Enfermero.Text);
                 MessageBox.Show("Registro Eliminado!");
+                this.Close();
             }
 
         }

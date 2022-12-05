@@ -81,6 +81,7 @@ namespace WinFormsApp1
             {
                 Eliminar(txt_Consulta_Doc.Text);
                 MessageBox.Show("Registro Eliminado!");
+                this.Close();
             }
 
         }

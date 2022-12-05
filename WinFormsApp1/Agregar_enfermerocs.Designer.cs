@@ -33,7 +33,6 @@
             this.txt_contraseña = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,13 +44,12 @@
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.txt_Paterno = new System.Windows.Forms.TextBox();
             this.txt_Materno = new System.Windows.Forms.TextBox();
-            this.txt_Telefono = new System.Windows.Forms.TextBox();
             this.txt_Email = new System.Windows.Forms.TextBox();
             this.txt_CURP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.numericID = new System.Windows.Forms.NumericUpDown();
+            this.txt_Telefono = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Telefono)).BeginInit();
             this.SuspendLayout();
             // 
             // label11
@@ -96,16 +94,6 @@
             this.label10.Size = new System.Drawing.Size(60, 15);
             this.label10.TabIndex = 66;
             this.label10.Text = "NOMBRE";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(44, 308);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(20, 15);
-            this.label8.TabIndex = 64;
-            this.label8.Text = "ID";
             // 
             // label7
             // 
@@ -213,15 +201,6 @@
             this.txt_Materno.Size = new System.Drawing.Size(196, 23);
             this.txt_Materno.TabIndex = 53;
             // 
-            // txt_Telefono
-            // 
-            this.txt_Telefono.Location = new System.Drawing.Point(290, 159);
-            this.txt_Telefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_Telefono.MaxLength = 10;
-            this.txt_Telefono.Name = "txt_Telefono";
-            this.txt_Telefono.Size = new System.Drawing.Size(196, 23);
-            this.txt_Telefono.TabIndex = 52;
-            // 
             // txt_Email
             // 
             this.txt_Email.Location = new System.Drawing.Point(548, 159);
@@ -251,13 +230,12 @@
             this.label1.Text = "REGISTRO DE ENFERMERO";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // numericID
+            // txt_Telefono
             // 
-            this.numericID.Cursor = System.Windows.Forms.Cursors.Default;
-            this.numericID.Location = new System.Drawing.Point(45, 339);
-            this.numericID.Name = "numericID";
-            this.numericID.Size = new System.Drawing.Size(120, 23);
-            this.numericID.TabIndex = 73;
+            this.txt_Telefono.Location = new System.Drawing.Point(290, 160);
+            this.txt_Telefono.Name = "txt_Telefono";
+            this.txt_Telefono.Size = new System.Drawing.Size(182, 23);
+            this.txt_Telefono.TabIndex = 70;
             // 
             // Agregar_enfermerocs
             // 
@@ -265,12 +243,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(814, 533);
-            this.Controls.Add(this.numericID);
+            this.Controls.Add(this.txt_Telefono);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txt_contraseña);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -282,7 +259,6 @@
             this.Controls.Add(this.txt_Nombre);
             this.Controls.Add(this.txt_Paterno);
             this.Controls.Add(this.txt_Materno);
-            this.Controls.Add(this.txt_Telefono);
             this.Controls.Add(this.txt_Email);
             this.Controls.Add(this.txt_CURP);
             this.Controls.Add(this.label1);
@@ -290,7 +266,7 @@
             this.Name = "Agregar_enfermerocs";
             this.Text = "Agregar_enfermerocs";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Telefono)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,7 +277,6 @@
         private TextBox txt_contraseña;
         private Button button1;
         private Label label10;
-        private Label label8;
         private Label label7;
         private Label label6;
         private Label label5;
@@ -313,10 +288,9 @@
         private TextBox txt_Nombre;
         private TextBox txt_Paterno;
         private TextBox txt_Materno;
-        private TextBox txt_Telefono;
         private TextBox txt_Email;
         private TextBox txt_CURP;
         private Label label1;
-        private NumericUpDown numericID;
+        private NumericUpDown txt_Telefono;
     }
 }

@@ -22,7 +22,7 @@ namespace WinFormsApp1
         }
         public DataTable Consultar()
         {
-            string query = "select id_bolsa_sangre,volumen,tipo_sangre,volumen_grojos,volumen_plaquetas,volumen_plasma,vida_util,curp_donador from \"bolsa_sangre\",\"donacion\",\"globulos_rojos\",\"plaquetas\",\"plasma\"";
+            string query = "select id_donacion,volumen,fecha,fecha_util,tipo_donacion,tipo_sangre,curp_donador,curp_enfermero from \"donacion\"";
             NpgsqlCommand connector = new NpgsqlCommand(query, conn);
             NpgsqlDataAdapter datos = new NpgsqlDataAdapter(connector);
             DataTable tabla = new DataTable();
@@ -42,7 +42,7 @@ namespace WinFormsApp1
         }
         public void Eliminar(string n)
         {
-            string query = "Delete from \"bolsa_sangre\"" + "where \"id_bolsa\"='" + n + "'";
+            string query = "Delete from \"donacion\"" + "where \"id_donacion\"='" + n + "'";
             NpgsqlCommand ejecutor = new NpgsqlCommand(query, conn);
             ejecutor.ExecuteNonQuery();
 
@@ -78,6 +78,7 @@ namespace WinFormsApp1
             {
                 Eliminar(txt_Consulta_Banco.Text);
                 MessageBox.Show("Registro Eliminado!");
+                this.Close();
             }
         }
     }

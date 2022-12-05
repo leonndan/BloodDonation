@@ -33,7 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_CURP = new System.Windows.Forms.TextBox();
             this.txt_Email = new System.Windows.Forms.TextBox();
-            this.txt_Telefono = new System.Windows.Forms.TextBox();
             this.txt_Materno = new System.Windows.Forms.TextBox();
             this.txt_Paterno = new System.Windows.Forms.TextBox();
             this.txt_Nombre = new System.Windows.Forms.TextBox();
@@ -52,10 +51,9 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btn_agregar = new System.Windows.Forms.Button();
             this.comboSangre = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.numericID = new System.Windows.Forms.NumericUpDown();
+            this.txt_Telefono = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Telefono)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -87,15 +85,6 @@
             this.txt_Email.Size = new System.Drawing.Size(196, 23);
             this.txt_Email.TabIndex = 2;
             // 
-            // txt_Telefono
-            // 
-            this.txt_Telefono.Location = new System.Drawing.Point(288, 164);
-            this.txt_Telefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_Telefono.MaxLength = 10;
-            this.txt_Telefono.Name = "txt_Telefono";
-            this.txt_Telefono.Size = new System.Drawing.Size(196, 23);
-            this.txt_Telefono.TabIndex = 3;
-            // 
             // txt_Materno
             // 
             this.txt_Materno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -125,6 +114,7 @@
             // 
             // comboEnfermero
             // 
+            this.comboEnfermero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboEnfermero.FormattingEnabled = true;
             this.comboEnfermero.Location = new System.Drawing.Point(43, 344);
             this.comboEnfermero.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -134,6 +124,7 @@
             // 
             // comboMedico
             // 
+            this.comboMedico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMedico.FormattingEnabled = true;
             this.comboMedico.Location = new System.Drawing.Point(43, 422);
             this.comboMedico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -263,6 +254,7 @@
             // 
             // comboSangre
             // 
+            this.comboSangre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboSangre.FormattingEnabled = true;
             this.comboSangre.Items.AddRange(new object[] {
             "A+",
@@ -279,22 +271,12 @@
             this.comboSangre.Size = new System.Drawing.Size(196, 23);
             this.comboSangre.TabIndex = 23;
             // 
-            // label11
+            // txt_Telefono
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(43, 460);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(20, 15);
-            this.label11.TabIndex = 24;
-            this.label11.Text = "ID";
-            // 
-            // numericID
-            // 
-            this.numericID.Location = new System.Drawing.Point(43, 488);
-            this.numericID.Name = "numericID";
-            this.numericID.Size = new System.Drawing.Size(120, 23);
-            this.numericID.TabIndex = 25;
+            this.txt_Telefono.Location = new System.Drawing.Point(288, 164);
+            this.txt_Telefono.Name = "txt_Telefono";
+            this.txt_Telefono.Size = new System.Drawing.Size(182, 23);
+            this.txt_Telefono.TabIndex = 24;
             // 
             // Agregar_paciente
             // 
@@ -302,8 +284,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(814, 561);
-            this.Controls.Add(this.numericID);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txt_Telefono);
             this.Controls.Add(this.comboSangre);
             this.Controls.Add(this.btn_agregar);
             this.Controls.Add(this.label10);
@@ -321,7 +302,6 @@
             this.Controls.Add(this.txt_Nombre);
             this.Controls.Add(this.txt_Paterno);
             this.Controls.Add(this.txt_Materno);
-            this.Controls.Add(this.txt_Telefono);
             this.Controls.Add(this.txt_Email);
             this.Controls.Add(this.txt_CURP);
             this.Controls.Add(this.label1);
@@ -330,7 +310,7 @@
             this.Text = "Agregar_paciente";
             this.Load += new System.EventHandler(this.Agregar_paciente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Telefono)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,7 +321,6 @@
         private Label label1;
         private TextBox txt_CURP;
         private TextBox txt_Email;
-        private TextBox txt_Telefono;
         private TextBox txt_Materno;
         private TextBox txt_Paterno;
         private TextBox txt_Nombre;
@@ -360,7 +339,6 @@
         private ContextMenuStrip contextMenuStrip1;
         private Button btn_agregar;
         private ComboBox comboSangre;
-        private Label label11;
-        private NumericUpDown numericID;
+        private NumericUpDown txt_Telefono;
     }
 }

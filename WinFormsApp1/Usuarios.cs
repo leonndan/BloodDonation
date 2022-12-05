@@ -19,10 +19,10 @@ namespace WinFormsApp1
             InitializeComponent();
             conn.Open();
         }
-        public void Insertar(int id, string CURP, string nombre, string ap_paterno, string ap_materno, string telefono, string correo, string password, string cargo)
+        public void Insertar(string CURP, string nombre, string ap_paterno, string ap_materno, string telefono, string correo, string password, string cargo)
         {
-            string query = "Insert into "+ cargo +" values ("
-                + id + ",'" + CURP + "','" + nombre + "','" + ap_paterno + "','" + ap_materno + "','" + telefono + "','" + correo + "','" + password + "')";
+            string query = "Insert into "+ cargo + " (curp,nombre,apellido_paterno,apellido_materno,telefono,correo,password) values ("
+                 + "'" + CURP + "','" + nombre + "','" + ap_paterno + "','" + ap_materno + "','" + telefono + "','" + correo + "','" + password + "')";
 
             NpgsqlCommand ejecutor = new NpgsqlCommand(query, conn);
             ejecutor.ExecuteNonQuery();
@@ -49,40 +49,54 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (bandera_editar == false)
+            if(txt_CURP.Text == "" | txt_Nombre.Text == "" | txt_am.Text == "" | txt_ap.Text == "" | txt_telefono.Text == "" | txt_email.Text == "" | txt_contraseña.Text == "" | comboCargo.Text == "" )
             {
-                Insertar(
-                Convert.ToInt32(id_usuario.Text),
-                txt_CURP.Text,
-                txt_Nombre.Text,
-                txt_ap.Text,
-                txt_am.Text,
-                txt_telefono.Text,
-                txt_email.Text,
-                txt_contraseña.Text,
-                Convert.ToString(comboCargo.SelectedItem)
-                );
-                conn.Close();
-                this.Close();
-                MessageBox.Show("Exito!");
-
+                MessageBox.Show("Faltan campos por llenar", "Error!");
             }
             else
             {
-                Actualizar(
-                    txt_Nombre.Text,
-                    txt_ap.Text,
-                    txt_am.Text,
-                    txt_telefono.Text,
-                    txt_email.Text,
-                    txt_contraseña.Text,
-                    Convert.ToString(comboCargo.SelectedItem),
-                    txt_CURP.Text
-                    );
-                conn.Close();
-                MessageBox.Show("Registro Actualizado!");
-                this.Close();
-            }
+                if(txt_CURP.Text.Length < 18)
+                {
+                    MessageBox.Show("CURP no tiene longitud de 18 caracteres", "Error CURP!");
+                }
+                else
+                {
+                    if (bandera_editar == false)
+                    {
+                        Insertar(
+                        txt_CURP.Text,
+                        txt_Nombre.Text,
+                        txt_ap.Text,
+                        txt_am.Text,
+                        txt_telefono.Text,
+                        txt_email.Text,
+                        txt_contraseña.Text,
+                        Convert.ToString(comboCargo.SelectedItem)
+                        );
+                        conn.Close();
+                        this.Close();
+                        MessageBox.Show("Exito!");
+
+                    }
+                    else
+                    {
+                        Actualizar(
+                            txt_Nombre.Text,
+                            txt_ap.Text,
+                            txt_am.Text,
+                            txt_telefono.Text,
+                            txt_email.Text,
+                            txt_contraseña.Text,
+                            Convert.ToString(comboCargo.SelectedItem),
+                            txt_CURP.Text
+                            );
+                        conn.Close();
+                        MessageBox.Show("Registro Actualizado!");
+                        this.Close();
+                    }
+                }
+                
+            }          
         }
     }
 }

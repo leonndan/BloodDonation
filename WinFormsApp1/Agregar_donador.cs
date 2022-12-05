@@ -19,14 +19,22 @@ namespace WinFormsApp1
             InitializeComponent();
             conn.Open();
         }
-        public void Insertar(string CURP, string nombre, string ap_paterno, string ap_materno, string telefono, string correo, int id, string c_elegibilidad, string tipo_sangre)
+        public void Insertar(string CURP, string nombre, string ap_paterno, string ap_materno, string telefono, string correo, string c_elegibilidad, string tipo_sangre)
         {
-            string query = "Insert into \"donador\" values ('"
-                + CURP + "','" + nombre + "','" + ap_paterno + "','" + ap_materno + "','" + telefono + "','" + correo + "'," + id + ",'" + c_elegibilidad + "','" + tipo_sangre + "')";
+            string query = "Insert into \"donador\" (curp,nombre,apellido_paterno,apellido_materno,telefono,correo,elegibilidad,tipo_sangre)   values ('"
+                + CURP + "','" + nombre + "','" + ap_paterno + "','" + ap_materno + "','" + telefono + "','" + correo + "','" + c_elegibilidad + "','" + tipo_sangre + "')";
 
-            NpgsqlCommand ejecutor = new NpgsqlCommand(query, conn);
-            ejecutor.ExecuteNonQuery();
-            
+            try
+            {
+                NpgsqlCommand ejecutor = new NpgsqlCommand(query, conn);
+                ejecutor.ExecuteNonQuery();
+                MessageBox.Show("Exito!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error, CURP debe ser unica");
+            }
+
         }
         public void Actualizar(string nombre, string ap_paterno, string ap_materno, string telefono, string correo, string c_elegibilidad, string tipo_sangre, string n)
         {
@@ -49,41 +57,60 @@ namespace WinFormsApp1
 
         private void btn_Insert_Click(object sender, EventArgs e)
         {
-            if (bandera_editar == false)
+            if (txt_CURP.Text == "" | txt_Nombre.Text == "" | txt_am.Text == "" | txt_ap.Text == "" | txt_telefono.Text == "" | txt_email.Text == "" | tipo_Sangre.Text == "" || elegibilidad.Text == "")
             {
-                Insertar(
-                   txt_curp.Text,
-                   txt_nombre.Text,
-                   txt_paterno.Text,
-                   txt_materno.Text,
-                   txt_telefono.Text,
-                   txt_email.Text,
-                   Convert.ToInt32(numericID.Text),
-                   Convert.ToString(elegibilidad.SelectedItem),
-                   Convert.ToString(tipo_Sangre.SelectedItem)
-                   );
-                conn.Close();
-                MessageBox.Show("Exito!");
-                this.Close();
+                MessageBox.Show("Faltan campos por llenar", "Error!");
             }
             else
             {
-                Actualizar(
-                   txt_nombre.Text,
-                   txt_paterno.Text,
-                   txt_materno.Text,
-                   txt_telefono.Text,
-                   txt_email.Text,
-                   Convert.ToString(elegibilidad.SelectedItem),
-                   Convert.ToString(tipo_Sangre.SelectedItem),
-                   txt_curp.Text
-                    );
-                conn.Close();
-                MessageBox.Show("Registro Actualizado!");
-                this.Close();
+                if (txt_CURP.Text.Length < 18)
+                {
+                    MessageBox.Show("CURP no tiene longitud de 18 caracteres", "Error CURP!");
+                }
+                else
+                {
+                    if(elegibilidad.Text == "FALSO")
+                    {
+                        MessageBox.Show("No se pueden registrar donadores con elegibilidad negativa");
+                    }
+                    if (bandera_editar == false)
+                    {
+                        if (bandera_editar == false)
+                        {
+                            Insertar(
+                               txt_CURP.Text,
+                               txt_Nombre.Text,
+                               txt_ap.Text,
+                               txt_am.Text,
+                               txt_telefono.Text,
+                               txt_email.Text,
+                               Convert.ToString(elegibilidad.SelectedItem),
+                               Convert.ToString(tipo_Sangre.SelectedItem)
+                               );
+                            conn.Close();
+                            MessageBox.Show("Exito!");
+                            this.Close();
+                        }
+                        else
+                        {
+                            Actualizar(
+                               txt_Nombre.Text,
+                               txt_ap.Text,
+                               txt_am.Text,
+                               txt_telefono.Text,
+                               txt_email.Text,
+                               Convert.ToString(elegibilidad.SelectedItem),
+                               Convert.ToString(tipo_Sangre.SelectedItem),
+                               txt_CURP.Text
+                                );
+                            conn.Close();
+                            MessageBox.Show("Registro Actualizado!");
+                            this.Close();
 
+                        }
+                    }
+                }
             }
-            
         }
     }
 }

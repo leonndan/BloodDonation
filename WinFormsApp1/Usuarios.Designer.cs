@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios));
-            this.id_usuario = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.txt_contraseña = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,23 +41,15 @@
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.txt_ap = new System.Windows.Forms.TextBox();
             this.txt_am = new System.Windows.Forms.TextBox();
-            this.txt_telefono = new System.Windows.Forms.TextBox();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.txt_CURP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboCargo = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.id_usuario)).BeginInit();
+            this.txt_telefono = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // id_usuario
-            // 
-            this.id_usuario.Location = new System.Drawing.Point(38, 323);
-            this.id_usuario.Name = "id_usuario";
-            this.id_usuario.Size = new System.Drawing.Size(120, 23);
-            this.id_usuario.TabIndex = 66;
             // 
             // label11
             // 
@@ -90,16 +80,6 @@
             this.label10.Size = new System.Drawing.Size(60, 15);
             this.label10.TabIndex = 63;
             this.label10.Text = "NOMBRE";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(38, 294);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(20, 15);
-            this.label8.TabIndex = 62;
-            this.label8.Text = "ID";
             // 
             // label6
             // 
@@ -189,15 +169,6 @@
             this.txt_am.Size = new System.Drawing.Size(196, 23);
             this.txt_am.TabIndex = 51;
             // 
-            // txt_telefono
-            // 
-            this.txt_telefono.Location = new System.Drawing.Point(283, 145);
-            this.txt_telefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_telefono.MaxLength = 10;
-            this.txt_telefono.Name = "txt_telefono";
-            this.txt_telefono.Size = new System.Drawing.Size(196, 23);
-            this.txt_telefono.TabIndex = 50;
-            // 
             // txt_email
             // 
             this.txt_email.Location = new System.Drawing.Point(541, 145);
@@ -228,6 +199,7 @@
             // 
             // comboCargo
             // 
+            this.comboCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboCargo.FormattingEnabled = true;
             this.comboCargo.Items.AddRange(new object[] {
             "almacenista",
@@ -260,6 +232,15 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txt_telefono
+            // 
+            this.txt_telefono.Location = new System.Drawing.Point(283, 145);
+            this.txt_telefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_telefono.MaxLength = 10;
+            this.txt_telefono.Name = "txt_telefono";
+            this.txt_telefono.Size = new System.Drawing.Size(196, 23);
+            this.txt_telefono.TabIndex = 50;
+            // 
             // Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -270,11 +251,9 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.comboCargo);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.id_usuario);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txt_contraseña);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -290,7 +269,6 @@
             this.Name = "Usuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuarios";
-            ((System.ComponentModel.ISupportInitialize)(this.id_usuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -298,12 +276,9 @@
         }
 
         #endregion
-
-        private NumericUpDown id_usuario;
         private Label label11;
         private TextBox txt_contraseña;
         private Label label10;
-        private Label label8;
         private Label label6;
         private Label label5;
         private Label label4;
@@ -313,12 +288,12 @@
         private TextBox txt_Nombre;
         private TextBox txt_ap;
         private TextBox txt_am;
-        private TextBox txt_telefono;
         private TextBox txt_email;
         private TextBox txt_CURP;
         private Label label1;
         private ComboBox comboCargo;
         private Label label9;
         private Button button1;
+        private TextBox txt_telefono;
     }
 }

@@ -36,18 +36,10 @@ namespace WinFormsApp1
             
 
         }
-        public void Insertar(string CURP_enfermero, string CURP_donador, string tipo_sangre, int id_bolsa, int id_donacion, string fecha, int volumen, string vida_util, int id_grojos, int id_plasma, int id_paquetas, int v_grojos, int v_plasma, int v_plaqueta)
+        public void Insertar(string CURP_enfermero, string CURP_donador, string tipo_sangre, string tipo_donacion, string fecha, int volumen, string vida_util)
         {
-            string query = "Insert into \"donacion\" values ('"
-               + CURP_enfermero + "','" + CURP_donador + "'," + id_bolsa + "," + id_donacion + ",'" + fecha + "'); Insert into" +
-                "\"bolsa_sangre\" values ("
-                + id_bolsa + "," + volumen + "," + id_donacion + ",'" + vida_util + "'); Insert into" +
-                "\"globulos_rojos\" values ("
-                + id_bolsa + "," + id_grojos + ",'" + tipo_sangre + "'," + v_grojos + "); Insert into" +
-                "\"plaquetas\" values ("
-                + id_bolsa + "," + id_paquetas + ",'" + tipo_sangre + "'," + v_plaqueta + "); Insert into" +
-                "\"plasma\" values ("
-                + id_bolsa + "," + id_plasma + ",'" + tipo_sangre + "'," + v_plasma + ")";
+            string query = "Insert into \"donacion\"  (curp_enfermero,curp_donador,fecha,tipo_donacion,tipo_sangre,volumen,fecha_util) values ('"
+               + CURP_enfermero + "','" + CURP_donador  + "','" + fecha + "','" + tipo_donacion + "','" + tipo_sangre + "','" + volumen + "','" + vida_util + "')";
 
             NpgsqlCommand ejecutor = new NpgsqlCommand(query, conn);
             ejecutor.ExecuteNonQuery();
@@ -92,46 +84,46 @@ namespace WinFormsApp1
 
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
-            if (bandera_editar == false)
+            if (comboEnferemero.Text == "" | comboDonador.Text == "" | combo_TipoSangre.Text == "" | tipo_donacion.Text == "" | combo_TipoSangre.Text == "")
             {
-                Insertar(
-                Convert.ToString(comboEnferemero.SelectedItem),
-                Convert.ToString(comboDonador.SelectedItem),
-                Convert.ToString(combo_TipoSangre.SelectedItem),
-                Convert.ToInt32(numericID.Text),
-                Convert.ToInt32(numericID.Text),
-                dateTimePicker1.Text,
-                Convert.ToInt32(numericVolumen.Text),
-                dateTimePicker2.Text,
-                Convert.ToInt32(numericID.Text),
-                Convert.ToInt32(numericID.Text),
-                Convert.ToInt32(numericID.Text),
-                Convert.ToInt32(numericGRojos.Text),
-                Convert.ToInt32(numericPlasma.Text),
-                Convert.ToInt32(numericPlaquetas.Text)
-                ); 
-                conn.Close();
-                this.Close();
+                MessageBox.Show("Faltan campos por llenar", "Error!");
             }
-           /* else
+            else
             {
-                Actualizar(
-                    txt_Nombre.Text,
-                    txt_Paterno.Text,
-                    txt_Materno.Text,
-                    txt_Telefono.Text,
-                    txt_Email.Text,
-                    txt_contraseña.Text,
-                    txt_ARNP.Text,
-                    txt_CURP.Text
+                if (bandera_editar == false)
+                {
+                    Insertar(
+                    Convert.ToString(comboEnferemero.SelectedItem),
+                    Convert.ToString(comboDonador.SelectedItem),
+                    Convert.ToString(combo_TipoSangre.SelectedItem),
+                    Convert.ToString(tipo_donacion.SelectedItem),
+                    dateTimePicker1.Text,
+                    Convert.ToInt32(numericVolumen.Text),
+                    dateTimePicker2.Text
                     );
-                conn.Close();
-                MessageBox.Show("Registro Actualizado!");
-                this.Close();
+                    conn.Close();
+                    this.Close();
+                }
+                /* else
+                 {
+                     Actualizar(
+                         txt_Nombre.Text,
+                         txt_Paterno.Text,
+                         txt_Materno.Text,
+                         txt_Telefono.Text,
+                         txt_Email.Text,
+                         txt_contraseña.Text,
+                         txt_ARNP.Text,
+                         txt_CURP.Text
+                         );
+                     conn.Close();
+                     MessageBox.Show("Registro Actualizado!");
+                     this.Close();
+
+                 }
+                */
 
             }
-           */
-
         }
 
         private void txt_Vidautil_TextChanged(object sender, EventArgs e)
