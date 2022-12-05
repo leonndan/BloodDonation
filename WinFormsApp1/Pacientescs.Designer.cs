@@ -64,6 +64,7 @@
             this.btn_Editar.TabIndex = 5;
             this.btn_Editar.Text = "Editar";
             this.btn_Editar.UseVisualStyleBackColor = false;
+            this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click_1);
             // 
             // pictureBox1
             // 

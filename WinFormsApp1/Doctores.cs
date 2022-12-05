@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Npgsql; 
+using Npgsql;
 namespace WinFormsApp1
 {
     public partial class Doctores : Form
@@ -20,7 +20,7 @@ namespace WinFormsApp1
             InitializeComponent();
             conn.Open();
             datagridMedicos.DataSource = Consultar();
-
+            conn.Close();
         }
 
         private void Doctores_Load(object sender, EventArgs e)
@@ -44,6 +44,7 @@ namespace WinFormsApp1
         }
         public DataTable Consultar_Nombre(string nom)
         {
+            NpgsqlConnection conn = new NpgsqlConnection("Server= localhost; database=bloodDonation+; User Id= postgres; Password=danielleon");
             string query = "select id,curp,nombre,apellido_paterno,apellido_materno,telefono,correo,cedula  from \"medico\" where \"nombre\"= '" + nom+"'";
             NpgsqlCommand connector = new NpgsqlCommand(query, conn);
             NpgsqlDataAdapter datos = new NpgsqlDataAdapter(connector);
@@ -66,9 +67,25 @@ namespace WinFormsApp1
         }
         public void Eliminar(string n)
         {
-            string query = "Delete from \"medico\"" + "where \"curp\"='" + n + "'";
-            NpgsqlCommand ejecutor = new NpgsqlCommand(query, conn);
-            ejecutor.ExecuteNonQuery();
+            NpgsqlCommand cm = new NpgsqlCommand("Select curp from medico where curp = '" + n + "'", conn);
+            conn.Open();
+            NpgsqlDataReader dr = cm.ExecuteReader();
+            if (dr.Read())
+            {
+                conn.Close();
+                string query = "Delete from \"medico\"" + "where \"curp\"='" + n + "'";
+                NpgsqlCommand ejecutor = new NpgsqlCommand(query, conn);
+                conn.Open();
+                ejecutor.ExecuteNonQuery();
+                MessageBox.Show("Registro Eliminado!");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Usuario no existe!");
+                conn.Close();
+            }
+                
 
         }
         private void button3_Click(object sender, EventArgs e)
@@ -80,8 +97,7 @@ namespace WinFormsApp1
             else
             {
                 Eliminar(txt_Consulta_Doc.Text);
-                MessageBox.Show("Registro Eliminado!");
-                this.Close();
+                
             }
 
         }
@@ -94,10 +110,21 @@ namespace WinFormsApp1
             }
             else
             {
-                Agregar_medico ag = new Agregar_medico();
-                ag.bandera(true);
-                ag.Show();
-                this.Close();
+                NpgsqlConnection conn = new NpgsqlConnection("Server= localhost; database=bloodDonation+; User Id= postgres; Password=danielleon");
+                NpgsqlCommand cm = new NpgsqlCommand("Select curp from medico where curp = '" + txt_Consulta_Doc.Text +"'", conn);
+                conn.Open();
+                NpgsqlDataReader dr = cm.ExecuteReader();
+                if (dr.Read())
+                {
+                    Agregar_medico ag = new Agregar_medico();
+                    ag.bandera(true);
+                    ag.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario no existe!");
+                }
             }
 
         }

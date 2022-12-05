@@ -203,6 +203,7 @@
             // 
             // tipo_Sangre
             // 
+            this.tipo_Sangre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tipo_Sangre.FormattingEnabled = true;
             this.tipo_Sangre.Items.AddRange(new object[] {
             "A+",
@@ -231,6 +232,7 @@
             // 
             // elegibilidad
             // 
+            this.elegibilidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.elegibilidad.FormattingEnabled = true;
             this.elegibilidad.Items.AddRange(new object[] {
             "VERDADERO",

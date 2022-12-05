@@ -8,16 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
+using static System.Net.Mime.MediaTypeNames;
+
 namespace WinFormsApp1
 {
    
     public partial class Agregar_unidad : Form
     {
         bool bandera_editar=false;
+        string id_donacion;
         NpgsqlConnection conn = new NpgsqlConnection("Server= localhost; database=bloodDonation+; User Id= postgres; Password=danielleon");
-        public Agregar_unidad()
+        public Agregar_unidad(string id)
         {
             InitializeComponent();
+            id_donacion = id;
             conn.Open();
         }
 
@@ -45,9 +49,9 @@ namespace WinFormsApp1
             ejecutor.ExecuteNonQuery();
             MessageBox.Show("Exito!");
         }
-        public void Actualizar(string nombre, string ap_paterno, string ap_materno, string telefono, string correo, string password, string cedula, string n)
+        public void Actualizar(string CURP_enfermero, string CURP_donador, string tipo_sangre, string tipo_donacion, string fecha, int volumen, string vida_util)
         {
-            string query = "Update \"enfermero\" set \"nombre\"='" + nombre + "',\"apellido_paterno\"='" + ap_paterno + "',\"apellido_materno\"='" + ap_materno + "',\"telefono\"='" + telefono + "',\"correo\"='" + correo + "',\"password\"='" + password + "',\"cedula\"='" + cedula + "'" + "where \"curp\"='" + n + "'";
+            string query = "Update \"donacion\" set \"curp_enfermero\"='" + CURP_enfermero + "',\"curp_donador\"='" + CURP_donador + "',\"fecha\"='" + fecha + "',\"tipo_donacion\"='" + tipo_donacion + "',\"tipo_sangre\"='" + tipo_sangre + "',\"volumen\"='" + volumen + "',\"fecha_util\"='" + vida_util + "'";
             NpgsqlCommand ejecutor = new NpgsqlCommand(query, conn);
             ejecutor.ExecuteNonQuery();
 
@@ -84,7 +88,7 @@ namespace WinFormsApp1
 
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
-            if (comboEnferemero.Text == "" | comboDonador.Text == "" | combo_TipoSangre.Text == "" | tipo_donacion.Text == "" | combo_TipoSangre.Text == "")
+            if (comboEnferemero.Text == "" | comboDonador.Text == "" | combo_TipoSangre.Text == "" | tipo_donacion.Text == "" | combo_TipoSangre.Text == "" | numericVolumen.Value < 1)
             {
                 MessageBox.Show("Faltan campos por llenar", "Error!");
             }
@@ -104,24 +108,23 @@ namespace WinFormsApp1
                     conn.Close();
                     this.Close();
                 }
-                /* else
+                 else
                  {
                      Actualizar(
-                         txt_Nombre.Text,
-                         txt_Paterno.Text,
-                         txt_Materno.Text,
-                         txt_Telefono.Text,
-                         txt_Email.Text,
-                         txt_contraseña.Text,
-                         txt_ARNP.Text,
-                         txt_CURP.Text
+                        Convert.ToString(comboEnferemero.SelectedItem),
+                        Convert.ToString(comboDonador.SelectedItem),
+                        Convert.ToString(combo_TipoSangre.SelectedItem),
+                        Convert.ToString(tipo_donacion.SelectedItem),
+                        dateTimePicker1.Text,
+                        Convert.ToInt32(numericVolumen.Text),
+                        dateTimePicker2.Text
                          );
                      conn.Close();
                      MessageBox.Show("Registro Actualizado!");
                      this.Close();
 
                  }
-                */
+                
 
             }
         }

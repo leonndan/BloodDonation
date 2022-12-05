@@ -97,7 +97,7 @@ namespace WinFormsApp1
 
         private void agregarInventarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Agregar_insumoscs ag_insumo = new Agregar_insumoscs();
+            Agregar_insumoscs ag_insumo = new Agregar_insumoscs("null");
             ag_insumo.Show();
         }
 
@@ -109,7 +109,7 @@ namespace WinFormsApp1
 
         private void sangreUnidadBolsaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Agregar_unidad ag_unidad = new Agregar_unidad();
+            Agregar_unidad ag_unidad = new Agregar_unidad("null");
             ag_unidad.Show();
         }
 
@@ -117,6 +117,12 @@ namespace WinFormsApp1
         {
             Usuarios usuarios = new Usuarios();
             usuarios.Show();
+        }
+
+        private void almacenInsumosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Insumos insumos = new Insumos();
+            insumos.Show();
         }
     }
 }

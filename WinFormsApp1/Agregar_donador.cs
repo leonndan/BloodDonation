@@ -69,44 +69,48 @@ namespace WinFormsApp1
                 }
                 else
                 {
-                    if(elegibilidad.Text == "FALSO")
+                    if (elegibilidad.Text == "FALSO")
                     {
                         MessageBox.Show("No se pueden registrar donadores con elegibilidad negativa");
                     }
-                    if (bandera_editar == false)
+                    else
                     {
+
                         if (bandera_editar == false)
                         {
-                            Insertar(
-                               txt_CURP.Text,
-                               txt_Nombre.Text,
-                               txt_ap.Text,
-                               txt_am.Text,
-                               txt_telefono.Text,
-                               txt_email.Text,
-                               Convert.ToString(elegibilidad.SelectedItem),
-                               Convert.ToString(tipo_Sangre.SelectedItem)
-                               );
-                            conn.Close();
-                            MessageBox.Show("Exito!");
-                            this.Close();
-                        }
-                        else
-                        {
-                            Actualizar(
-                               txt_Nombre.Text,
-                               txt_ap.Text,
-                               txt_am.Text,
-                               txt_telefono.Text,
-                               txt_email.Text,
-                               Convert.ToString(elegibilidad.SelectedItem),
-                               Convert.ToString(tipo_Sangre.SelectedItem),
-                               txt_CURP.Text
-                                );
-                            conn.Close();
-                            MessageBox.Show("Registro Actualizado!");
-                            this.Close();
+                            if (bandera_editar == false)
+                            {
+                                Insertar(
+                                   txt_CURP.Text,
+                                   txt_Nombre.Text,
+                                   txt_ap.Text,
+                                   txt_am.Text,
+                                   txt_telefono.Text,
+                                   txt_email.Text,
+                                   Convert.ToString(elegibilidad.SelectedItem),
+                                   Convert.ToString(tipo_Sangre.SelectedItem)
+                                   );
+                                conn.Close();
+                                MessageBox.Show("Exito!");
+                                this.Close();
+                            }
+                            else
+                            {
+                                Actualizar(
+                                   txt_Nombre.Text,
+                                   txt_ap.Text,
+                                   txt_am.Text,
+                                   txt_telefono.Text,
+                                   txt_email.Text,
+                                   Convert.ToString(elegibilidad.SelectedItem),
+                                   Convert.ToString(tipo_Sangre.SelectedItem),
+                                   txt_CURP.Text
+                                    );
+                                conn.Close();
+                                MessageBox.Show("Registro Actualizado!");
+                                this.Close();
 
+                            }
                         }
                     }
                 }

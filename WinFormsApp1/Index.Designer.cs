@@ -50,6 +50,7 @@
             this.agregarInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sangreUnidadBolsaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.almacenInsumosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -93,12 +94,12 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(172, 6);
             // 
             // nuevoUsuarioToolStripMenuItem
             // 
             this.nuevoUsuarioToolStripMenuItem.Name = "nuevoUsuarioToolStripMenuItem";
-            this.nuevoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.nuevoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
             this.nuevoUsuarioToolStripMenuItem.Text = "Nuevo Usuario";
             this.nuevoUsuarioToolStripMenuItem.Click += new System.EventHandler(this.nuevoUsuarioToolStripMenuItem_Click);
             // 
@@ -206,9 +207,10 @@
             // bancoDeSangreToolStripMenuItem
             // 
             this.bancoDeSangreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarInventarioToolStripMenuItem,
             this.bancoToolStripMenuItem,
-            this.sangreUnidadBolsaToolStripMenuItem});
+            this.sangreUnidadBolsaToolStripMenuItem,
+            this.agregarInventarioToolStripMenuItem,
+            this.almacenInsumosToolStripMenuItem});
             this.bancoDeSangreToolStripMenuItem.Name = "bancoDeSangreToolStripMenuItem";
             this.bancoDeSangreToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
             this.bancoDeSangreToolStripMenuItem.Text = "Banco de sangre";
@@ -217,23 +219,30 @@
             // agregarInventarioToolStripMenuItem
             // 
             this.agregarInventarioToolStripMenuItem.Name = "agregarInventarioToolStripMenuItem";
-            this.agregarInventarioToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
+            this.agregarInventarioToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.agregarInventarioToolStripMenuItem.Text = "Agregar Insumo";
             this.agregarInventarioToolStripMenuItem.Click += new System.EventHandler(this.agregarInventarioToolStripMenuItem_Click);
             // 
             // bancoToolStripMenuItem
             // 
             this.bancoToolStripMenuItem.Name = "bancoToolStripMenuItem";
-            this.bancoToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
+            this.bancoToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.bancoToolStripMenuItem.Text = "Banco";
             this.bancoToolStripMenuItem.Click += new System.EventHandler(this.bancoToolStripMenuItem_Click);
             // 
             // sangreUnidadBolsaToolStripMenuItem
             // 
             this.sangreUnidadBolsaToolStripMenuItem.Name = "sangreUnidadBolsaToolStripMenuItem";
-            this.sangreUnidadBolsaToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
-            this.sangreUnidadBolsaToolStripMenuItem.Text = "Sangre/Unidad/Bolsa";
+            this.sangreUnidadBolsaToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
+            this.sangreUnidadBolsaToolStripMenuItem.Text = "Registrar Sangre";
             this.sangreUnidadBolsaToolStripMenuItem.Click += new System.EventHandler(this.sangreUnidadBolsaToolStripMenuItem_Click);
+            // 
+            // almacenInsumosToolStripMenuItem
+            // 
+            this.almacenInsumosToolStripMenuItem.Name = "almacenInsumosToolStripMenuItem";
+            this.almacenInsumosToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
+            this.almacenInsumosToolStripMenuItem.Text = "Almacen Insumos";
+            this.almacenInsumosToolStripMenuItem.Click += new System.EventHandler(this.almacenInsumosToolStripMenuItem_Click);
             // 
             // cerrarSesionToolStripMenuItem
             // 
@@ -325,5 +334,6 @@
         private ToolStripMenuItem bancoToolStripMenuItem;
         private ToolStripMenuItem sangreUnidadBolsaToolStripMenuItem;
         private ToolStripMenuItem nuevoUsuarioToolStripMenuItem;
+        private ToolStripMenuItem almacenInsumosToolStripMenuItem;
     }
 }

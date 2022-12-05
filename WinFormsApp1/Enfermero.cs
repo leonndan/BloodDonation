@@ -20,7 +20,7 @@ namespace WinFormsApp1
             InitializeComponent();
             conn.Open();
             dataGridEnfermero.DataSource = Consultar();
-            
+            conn.Close();
         }
         public DataTable Consultar()
         {
@@ -45,15 +45,39 @@ namespace WinFormsApp1
 
         private void btn_Consulta_Click(object sender, EventArgs e)
         {
-            dataGridEnfermero.DataSource = Consultar_Nombre(txt_Consulta_Enfermero.Text);
+            if (string.IsNullOrEmpty(txt_Consulta_Enfermero.Text))
+            {
+                MessageBox.Show("Favor de ingresar el Nombre!");
+                
+            }
+            else
+            {
+                dataGridEnfermero.DataSource = Consultar_Nombre(txt_Consulta_Enfermero.Text);
+            }
         }
         
         public void Eliminar(string n)
         {
-            string query="Delete from \"enfermero\""+ "where \"curp\"='" + n + "'";
-            NpgsqlCommand ejecutor=new NpgsqlCommand(query, conn);  
-            ejecutor.ExecuteNonQuery();
-            
+            NpgsqlCommand cm = new NpgsqlCommand("Select curp from enfermero where curp = '" + n + "'", conn);
+            conn.Open();
+            NpgsqlDataReader dr = cm.ExecuteReader();
+            if (dr.Read())
+            {
+                conn.Close();
+                conn.Open();
+                string query = "Delete from \"enfermero\"" + "where \"curp\"='" + n + "'";
+                NpgsqlCommand ejecutor = new NpgsqlCommand(query, conn);
+                ejecutor.ExecuteNonQuery();
+                MessageBox.Show("Registro Eliminado!");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Usuario no existe!");
+                conn.Close();
+            }
+
+
         }
 
         private void btn_Editar_Click(object sender, EventArgs e)
@@ -63,10 +87,22 @@ namespace WinFormsApp1
                 MessageBox.Show("Favor de ingresar la CURP!");
             }else
             {
-                Agregar_enfermerocs ag = new Agregar_enfermerocs();
-                ag.bandera(true);
-                ag.Show();
-                this.Close();
+                NpgsqlConnection conn = new NpgsqlConnection("Server= localhost; database=bloodDonation+; User Id= postgres; Password=danielleon");
+                NpgsqlCommand cm = new NpgsqlCommand("Select curp from enfermero where curp = '" + txt_Consulta_Enfermero.Text + "'", conn);
+                conn.Open();
+                NpgsqlDataReader dr = cm.ExecuteReader();
+                if (dr.Read())
+                {
+                    Agregar_enfermerocs ag = new Agregar_enfermerocs();
+                    ag.bandera(true);
+                    ag.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario no existe!");
+                }
+
             }
             
         }
@@ -80,8 +116,7 @@ namespace WinFormsApp1
             else
             {
                 Eliminar(txt_Consulta_Enfermero.Text);
-                MessageBox.Show("Registro Eliminado!");
-                this.Close();
+               ;
             }
 
         }
